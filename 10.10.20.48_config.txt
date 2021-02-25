@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration : 4815 bytes
+Current configuration : 5004 bytes
 !
-! Last configuration change at 19:42:39 UTC Thu Feb 25 2021 by developer
+! Last configuration change at 19:45:58 UTC Thu Feb 25 2021 by developer
 !
 version 16.9
 service timestamps debug datetime msec
@@ -151,6 +151,10 @@ redundancy
 ! 
 !
 !
+interface Loopback147
+ description Pod Number 147
+ ip address 10.111.147.1 255.255.255.255
+!
 interface Loopback11147
  description Pod Number 11147
  vrf forwarding red
@@ -231,6 +235,10 @@ line vty 0 4
  login local
  transport input ssh
 !
+ntp server 10.11.147.65
+ntp server 10.12.147.65
+ntp server 10.13.147.65
+ntp server 10.14.147.65
 !
 !
 !
