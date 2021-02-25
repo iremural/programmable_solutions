@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration : 4210 bytes
+Current configuration : 4815 bytes
 !
-! Last configuration change at 19:25:43 UTC Thu Feb 25 2021 by developer
+! Last configuration change at 19:42:39 UTC Thu Feb 25 2021 by developer
 !
 version 16.9
 service timestamps debug datetime msec
@@ -16,6 +16,22 @@ hostname csr1000v-1
 boot-start-marker
 boot-end-marker
 !
+!
+vrf definition blue
+ description Blue VRF
+ rd 1:410
+!
+vrf definition green
+ description Green VRF
+ rd 1:420
+!
+vrf definition myPrettyPod
+ description myPrettyPod VRF
+ rd 1:147
+!
+vrf definition red
+ description Red VRF
+ rd 1:400
 !
 no logging console
 enable secret 5 $1$20ue$uC.uSGo6nvfWs63EjjzRP.
@@ -134,6 +150,26 @@ redundancy
 ! 
 ! 
 !
+!
+interface Loopback11147
+ description Pod Number 11147
+ vrf forwarding red
+ no ip address
+!
+interface Loopback12147
+ description Pod Number 12147
+ vrf forwarding blue
+ no ip address
+!
+interface Loopback13147
+ description Pod Number 13147
+ vrf forwarding green
+ no ip address
+!
+interface Loopback14147
+ description Pod Number 14147
+ vrf forwarding myPrettyPod
+ no ip address
 !
 interface GigabitEthernet1
  description MANAGEMENT INTERFACE - DON'T TOUCH ME
