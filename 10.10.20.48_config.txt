@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration : 5004 bytes
+Current configuration : 5121 bytes
 !
-! Last configuration change at 19:45:58 UTC Thu Feb 25 2021 by developer
+! Last configuration change at 19:51:09 UTC Thu Feb 25 2021 by NETCONF
 !
 version 16.9
 service timestamps debug datetime msec
@@ -155,6 +155,10 @@ interface Loopback147
  description Pod Number 147
  ip address 10.111.147.1 255.255.255.255
 !
+interface Loopback1147
+ description Pod Number 147
+ ip address 10.111.147.2 255.255.255.255
+!
 interface Loopback11147
  description Pod Number 11147
  vrf forwarding red
@@ -239,6 +243,7 @@ ntp server 10.11.147.65
 ntp server 10.12.147.65
 ntp server 10.13.147.65
 ntp server 10.14.147.65
+ntp server 10.111.147.66
 !
 !
 !
